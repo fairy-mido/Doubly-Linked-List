@@ -31,7 +31,6 @@ struct node *create_DLL(int no_of_elements)
                 current_node->prev = NULL;
                 current_node->next = NULL;
                 head = current_node;
-                printf("%d\n",head);
                 // Created First Node
             }
             else
@@ -254,6 +253,8 @@ int delete_node()
 {
     int list_length, i, pos;
     list_length = get_length_list();
+    if(list_length != 0)
+    {
     printf("Enter Position For Placing Data!\n");
     scanf("%d", &pos);
     printf("--------------------------------------------------\n");
@@ -301,7 +302,7 @@ int delete_node()
             printf("Node has successfully been deleted!\n");
             printf("--------------------------------------------------\n");
         }
-        else if ((pos == 1) || (list_length >= 1)) // Deleting From Begining
+        else if ((pos == 1) && (list_length >= 1)) // Deleting From Begining
         {
             if (pos == list_length) // One Node In the List
             {
@@ -347,6 +348,12 @@ int delete_node()
             printf("Node has successfully been deleted!\n");
             printf("--------------------------------------------------\n");
         }
+    }
+    }
+    else
+    {
+        printf("List is Empty! There is Nothing To Delete\n");
+        printf("--------------------------------------------------\n");
     }
 }
 
@@ -593,7 +600,6 @@ int get_length_list()
 int entry_number_of_elements()
 {
     int no_of_elements, user_data, user_id, i = 0;
-    dll_node entry_data;
     while (1)
     {
 
